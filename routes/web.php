@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::group(['prefix' => 'content'], function() {
+    Route::get('profile/create', 'Content\ProfileController@add')->middleware('auth');
+    Route::post('profile/create', 'Content\ProfileController@create')->middleware('auth');
+});
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
