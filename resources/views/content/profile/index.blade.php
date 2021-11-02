@@ -48,6 +48,14 @@
                                     <td>{{ \Str::limit($profile->age, 100) }}</td>
                                     <td>{{ \Str::limit($profile->job, 100) }}</td>
                                     <td>{{ \Str::limit($profile->introduction, 100) }}</td>
+                                    <td>
+                                        <div>
+                                            <a href="{{ action('Content\ProfileController@edit', ['id' => $profile->id]) }}">編集</a>
+                                        </div>
+                                        <div>
+                                            <a href="{{ action('Content\ProfileController@delete', ['id' => $profile->id]) }}">削除</a>
+                                        </div>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
