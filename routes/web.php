@@ -17,6 +17,7 @@ Route::get('/', function () {
 Route::group(['prefix' => 'content'], function() {
     Route::get('profile/create', 'Content\ProfileController@add')->middleware('auth');
     Route::post('profile/create', 'Content\ProfileController@create')->middleware('auth');
+    Route::get('profile', 'Content\ProfileController@index')->middleware('auth');
 });
 Auth::routes();
 
