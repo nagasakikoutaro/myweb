@@ -19,6 +19,10 @@
                         </ul>
                     @endif
                     <div class="form-group row">
+                        <label class="col-md-2">プロフィール画像</label>
+                        <div class="col-md-10">
+                            <input type="file" class="form-control-file" name="image">
+                    <div class="form-group row">
                         <label class="col-md-2">氏名(name)</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="name" value="{{ old('name') }}">
@@ -31,9 +35,15 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2">趣味(hobby)</label>
+                        <label class="col-md-2">年齢(age)</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="hobby" value="{{ old('hobby') }}">
+                        <input type="text" class="form-control" name="age" value="{{ old('age') }}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-2">職種(job)</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" name="job" value="{{ old('job') }}">
                         </div>
                     </div>
                      <div class="form-group row">
