@@ -23,5 +23,5 @@ Route::group(['prefix' => 'content'], function() {
     Route::get('profile/delete', 'Content\ProfileController@delete')->middleware('auth');
 });
 Auth::routes();
-
+Route::get('/', 'ProfileController@index');
 Route::get('/home', 'HomeController@index')->name('home');
