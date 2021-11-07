@@ -49706,6 +49706,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/sass/coment.scss":
+/*!************************************!*\
+  !*** ./resources/sass/coment.scss ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "./resources/sass/front.scss":
 /*!***********************************!*\
   !*** ./resources/sass/front.scss ***!
@@ -49729,16 +49740,17 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 0:
-/*!***********************************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/profile.scss ./resources/sass/front.scss ***!
-  \***********************************************************************************************************************/
+/*!****************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/profile.scss ./resources/sass/front.scss ./resources/sass/coment.scss ***!
+  \****************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /home/ec2-user/environment/myweb/resources/js/app.js */"./resources/js/app.js");
 __webpack_require__(/*! /home/ec2-user/environment/myweb/resources/sass/app.scss */"./resources/sass/app.scss");
 __webpack_require__(/*! /home/ec2-user/environment/myweb/resources/sass/profile.scss */"./resources/sass/profile.scss");
-module.exports = __webpack_require__(/*! /home/ec2-user/environment/myweb/resources/sass/front.scss */"./resources/sass/front.scss");
+__webpack_require__(/*! /home/ec2-user/environment/myweb/resources/sass/front.scss */"./resources/sass/front.scss");
+module.exports = __webpack_require__(/*! /home/ec2-user/environment/myweb/resources/sass/coment.scss */"./resources/sass/coment.scss");
 
 
 /***/ })
