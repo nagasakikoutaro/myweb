@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Content;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\Coment;
+
 class ComentController extends Controller
 {
      public function add()
@@ -12,8 +14,14 @@ class ComentController extends Controller
         return view('content.coment.create');
     }
 
-    public function create()
+    public function create(Request $request)
     {
+      $this->validate($request, Coment::$rules);
+      $coment = new Coment;
+      $form = $request->all();
+      unset($form['_token']);
+      $coment->fill($form);
+      $coment->save();
         return redirect('content/coment/create');
     }
 
