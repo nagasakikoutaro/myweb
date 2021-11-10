@@ -24,6 +24,18 @@ class ComentController extends Controller
       $coment->save();
         return redirect('content/coment/create');
     }
+    
+    public function index(Request $request)
+  {
+      $cond_title = $request->cond_title;
+      if ($cond_title != '') {
+          // 検索されたら検索結果を取得する
+          $posts = Coment::where('name', $cond_title)->get();
+      } else {
+          $posts = Coment::all();
+      }
+      return view('content.coment.index', ['posts' => $posts, 'cond_title' => $cond_title]);
+  }
 
     public function edit()
     {
@@ -33,5 +45,5 @@ class ComentController extends Controller
     public function update()
     {
         return redirect('content/coment/edit');
-}
+    }
 }
