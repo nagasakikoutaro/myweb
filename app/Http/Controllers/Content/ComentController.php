@@ -37,13 +37,31 @@ class ComentController extends Controller
       return view('content.coment.index', ['posts' => $posts, 'cond_title' => $cond_title]);
   }
 
-    public function edit()
+    public function edit(Request $request)
     {
-        return view('content.coment.edit');
+         $profile = Profile::find($request->id);
+      if (empty($profile)) {
+        abort(404);    
+      }
+        return view('content.coment.edit',['profile_form' => $profile]);
     }
 
     public function update()
     {
-        return redirect('content/coment/edit');
+      $this->validate($request, Coment::$rules);
+      $coment = Coment::find($request->id);
+      $coment_form = $request->all();
+      unset($coment_form['_token']);
+      $coment->fill($coment_form)->save();
+
+        return redirect('content/coment');
     }
+    
+    public function delete(Request $request)
+  {
+      $coment = Coment::find($request->id);
+      // 削除する
+      $coment->delete();
+      return redirect('content/coment');
+  }  
 }

@@ -42,6 +42,14 @@
                                     <th>{{ $coment->id }}</th>
                                     <td>{{ \Str::limit($coment->name, 100) }}</td>
                                     <td>{{ \Str::limit($coment->body, 250) }}</td>
+                                    <td>
+                                        <div>
+                                            <a href="{{ action('Content\ComentController@edit', ['id' => $coment->id]) }}">編集</a>
+                                        </div>
+                                        <div>
+                                            <a href="{{ action('Content\ComentController@delete', ['id' => $coment->id]) }}">削除</a>
+                                        </div>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
