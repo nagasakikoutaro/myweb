@@ -15,4 +15,9 @@ class Profile extends Model
         'job' => 'required',
         'introduction' => 'required',
     );
+    
+    public function coment()
+    {
+        return $this->hasOne('App\Coment');
+    }
 }

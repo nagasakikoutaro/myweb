@@ -12,4 +12,9 @@ class Coment extends Model
         'name' => 'required',
         'body' => 'required',
     );
+    
+    public function profile()
+    {
+        return $this->belongsTo('App\Profile');
+    }
 }

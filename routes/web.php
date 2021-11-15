@@ -31,5 +31,6 @@ Route::group(['prefix' => 'content'], function() {
     Route::get('coment/delete', 'Content\ComentController@delete')->middleware('auth');
 });
 Auth::routes();
-Route::get('/', 'ProfileController@index');
+Route::get('/', 'ProfileController@index')->middleware('auth');
+Route::get('coment', 'ComentController@index')->middleware('auth');
 Route::get('/home', 'HomeController@index')->name('home');

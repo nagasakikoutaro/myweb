@@ -35,6 +35,10 @@
                                  <div class="introduction">
                                 自己紹介など->  {{ str_limit($post->introduction,150) }}
                                 </div>
+                                 <div>
+                                    <a href="{{ action('ComentController@index', ['id' => $post->id]) }}">コメント一覧</a>
+                                </div>
+                            </div>
                             </div>
                         </div>
                     </div>
