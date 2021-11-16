@@ -10,7 +10,7 @@ class ComentController extends Controller
 {
      public function index(Request $request)
     {
-        $posts = Coment::all()->sortByDesc('updated_at');
+        $comment = Coment::all()->sortByDesc('updated_at');
 
      
         return view('coment.index', [ 'posts' => $posts]);

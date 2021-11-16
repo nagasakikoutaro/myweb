@@ -32,5 +32,6 @@ Route::group(['prefix' => 'content'], function() {
 });
 Auth::routes();
 Route::get('/', 'ProfileController@index')->middleware('auth');
+Route::get('profile/show', 'ProfileController@show')->middleware('auth');
 Route::get('coment', 'ComentController@index')->middleware('auth');
 Route::get('/home', 'HomeController@index')->name('home');

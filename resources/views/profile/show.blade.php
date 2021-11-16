@@ -8,7 +8,6 @@
         <div class="row">
             <div class="posts col-md-8 mx-auto mt-3">
                  <h2>札幌市転職</h2>
-                @foreach($posts as $post)
                     <div class="post">
                         <div class="row">
                             <div class="text col-md-6">
@@ -36,14 +35,13 @@
                                 自己紹介など->  {{ str_limit($post->introduction,150) }}
                                 </div>
                                  <div>
-                                    <a href="{{ action('ProfileController@show', ['id' => $post->id]) }}">詳細</a>
+                                    <a href="{{ action('ComentController@index', ['id' => $post->id]) }}">コメント一覧</a>
                                 </div>
                             </div>
                             </div>
                         </div>
                     </div>
                     <hr color="#c0c0c0">
-                @endforeach
             </div>
         </div>
     </div>

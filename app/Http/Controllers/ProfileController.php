@@ -15,10 +15,13 @@ class ProfileController extends Controller
         return view('profile.index', [ 'posts' => $posts]);
     }
     
-    public function show(Request $request, $id)
+    public function show(Request $request)
 {
+    $id = $request-> id;
     $post = Profile::findOrFail($id);
  
-    return view('profile.show', ['post' => $post,]);
+    return view('profile.show', [
+        'post' => $post,
+    ]);
 }
 }
