@@ -8,11 +8,23 @@ use App\Coment;
 
 class ComentController extends Controller
 {
-     public function index(Request $request)
+     public function show(Request $request)
     {
-        $comment = Coment::all()->sortByDesc('updated_at');
+      $comments = Coment::select('*')->paginate(2);
 
      
-        return view('coment.index', [ 'posts' => $posts]);
+        return view('coment.show', [ 'comments' => $comments]);
     }
+
+     public function create(Request $request)
+    {
+      $this->validate($request, Coment::$rules);
+      $comment = new Coment;
+      $form = $request->all();
+      unset($form['_token']);
+      $comment->fill($form);
+      $comment->save();
+        return redirect('comment/show');
+    }
+  
 }

@@ -36,7 +36,7 @@
                                 自己紹介など->  {{ str_limit($post->introduction,150) }}
                                 </div>
                                  <div>
-                                    <a href="{{ action('ProfileController@show', ['id' => $post->id]) }}">詳細</a>
+                                    <a href="{{ action('ComentController@show', ['id' => $post->id]) }}">詳細</a>
                                 </div>
                             </div>
                             </div>

@@ -22,7 +22,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2">本文</label>
+                        <label class="col-md-2">コメント</label>
                         <div class="col-md-10">
                             <textarea class="form-control" name="body" rows="20">{{ old('body') }}</textarea>
                         </div>
@@ -35,3 +35,12 @@
         </div>
     </div>
 @endsection
+
+public function show(Request $request)
+    {
+        $id = $request-> id;
+        $posts = Coment::findOrFail($id);
+        dd($coments);
+ 
+        return view('profile.show', [ 'posts' => $posts]);
+    
