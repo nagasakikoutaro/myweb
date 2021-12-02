@@ -4,27 +4,32 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Coment;
 
+use App\Coment;
+use App\Profile;
 class ComentController extends Controller
 {
-     public function show(Request $request)
-    {
-      $comments = Coment::select('*')->paginate(2);
 
-     
-        return view('coment.show', [ 'comments' => $comments]);
-    }
-
-     public function create(Request $request)
+     public function store(Request $request)
     {
+      //コメントを保存する
       $this->validate($request, Coment::$rules);
       $comment = new Coment;
       $form = $request->all();
       unset($form['_token']);
       $comment->fill($form);
       $comment->save();
-        return redirect('comment/show');
+     
+ 
+       return redirect('/');
     }
+    public function show(Request $request)
+    {  //プロフィールごとのコメントを取得する
+       $id = Profile::all()->id;
+       $comment = Coment::findOrFail($id);
+     
+        return view('coment.show', [ 'comment' => $comment]);
+    }
+  
   
 }

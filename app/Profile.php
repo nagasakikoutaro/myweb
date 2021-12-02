@@ -16,8 +16,8 @@ class Profile extends Model
         'introduction' => 'required',
     );
     
-    public function coment()
+    public function coments()
     {
-        return $this->hasOne('App\Coment');
+        return $this->hasMany('App\Coment');
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Profile;
+use App\Coment;
 
 class ProfileController extends Controller
 {
@@ -15,5 +16,13 @@ class ProfileController extends Controller
         return view('profile.index', [ 'posts' => $posts]);
     }
     
-   
+   public function show(Request $request)
+    {
+       $id = $request->id;
+       $profile = Profile::findOrFail($id);
+     
+        return view('profile.show', [ 'profile' => $profile]);
+    }
+  
+    
 }

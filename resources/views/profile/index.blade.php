@@ -7,7 +7,7 @@
         <hr color="#c0c0c0">
         <div class="row">
             <div class="posts col-md-8 mx-auto mt-3">
-                 <h2>札幌市転職</h2>
+                 <h1>札幌市転職</h1>
                 @foreach($posts as $post)
                     <div class="post">
                         <div class="row">
@@ -36,7 +36,7 @@
                                 自己紹介など->  {{ str_limit($post->introduction,150) }}
                                 </div>
                                  <div>
-                                    <a href="{{ action('ComentController@show', ['id' => $post->id]) }}">詳細</a>
+                                    <a href="{{ action('ProfileController@show', ['id' => $post->id]) }}">コメント</a>
                                 </div>
                             </div>
                             </div>

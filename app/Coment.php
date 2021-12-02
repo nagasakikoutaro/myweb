@@ -7,13 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Coment extends Model
 {
     protected $guarded = array('id');
-      
-      public static $rules = array(
+
+    public static $rules = array(
         'name' => 'required',
         'body' => 'required',
     );
     
-    public function profile()
+    public function profiles()
     {
         return $this->belongsTo('App\Profile');
     }

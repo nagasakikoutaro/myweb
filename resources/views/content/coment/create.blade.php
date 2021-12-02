@@ -44,3 +44,31 @@ public function show(Request $request)
  
         return view('profile.show', [ 'posts' => $posts]);
     
+      <div class="comment" >
+                <h2>コメント作成</h2>
+                <form action="/profile/show" method="post" enctype="multipart/form-data">
+                <input name="post_id"type="hidden"value="{{ $post->id }}">
+                    @if (count($errors) > 0)
+                        <ul>
+                            @foreach($errors->all() as $e)
+                                <li>{{ $e }}</li>
+                            @endforeach
+                        </ul>
+                    @endif
+                    <div class="form-group row">
+                        <label class="col-md-2">名前</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" name="name" value="{{ old('neme') }}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-2">本文</label>
+                        <div class="col-md-10">
+                            <textarea class="form-control" name="body" rows="2">{{ old('body') }}</textarea>
+                        </div>
+                    </div>
+                    {{ csrf_field() }}
+                    <input type="submit" class="btn btn-primary" value="コメントを投稿">
+               </div>
+               
+               Route::post('coment/show','ComentController@create')->middleware('auth');
