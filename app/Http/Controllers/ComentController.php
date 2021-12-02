@@ -23,13 +23,4 @@ class ComentController extends Controller
  
        return redirect('/');
     }
-    public function show(Request $request)
-    {  //プロフィールごとのコメントを取得する
-       $id = Profile::all()->id;
-       $comment = Coment::findOrFail($id);
-     
-        return view('coment.show', [ 'comment' => $comment]);
-    }
-  
-  
 }

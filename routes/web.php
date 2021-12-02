@@ -22,17 +22,17 @@ Route::group(['prefix' => 'content'], function() {
     Route::post('profile/edit', 'Content\ProfileController@update')->middleware('auth');
     Route::get('profile/delete', 'Content\ProfileController@delete')->middleware('auth');
 });
-Route::group(['prefix' => 'content'], function() {
-    Route::get('coment/create', 'Content\ComentController@add')->middleware('auth');
-    Route::post('coment/create', 'Content\ComentController@create')->middleware('auth');
-    Route::get('coment', 'Content\ComentController@index')->middleware('auth');
-    Route::get('coment/edit', 'Content\ComentController@edit')->middleware('auth'); 
-    Route::post('coment/edit', 'Content\ComentController@update')->middleware('auth');
-    Route::get('coment/delete', 'Content\ComentController@delete')->middleware('auth');
-});
 Auth::routes();
-Route::get('/', 'ProfileController@index')->middleware('auth');
+Route::get('/', 'ProfileController@index');
 Route::get('profile/show', 'ProfileController@show')->middleware('auth');
-Route::post('profile/show', 'ComentController@store');
+Route::post('profile/show', 'ComentController@store')->middleware('auth');
+Route::get('comment/show', 'ComentController@show')->middleware('auth');
 Route::get('coment', 'ComentController@index')->middleware('auth');
+
+ Route::get('profile/create', 'ProfileController@add')->middleware('auth');
+    Route::post('profile/create', 'ProfileController@create')->middleware('auth');
+    Route::get('profile', 'ProfileController@index')->middleware('auth');
+    Route::get('profile/edit', 'ProfileController@edit')->middleware('auth'); 
+    Route::post('profile/edit', 'ProfileController@update')->middleware('auth');
+    Route::get('profile/delete', 'ProfileController@delete')->middleware('auth');
 Route::get('/home', 'HomeController@index')->name('home');

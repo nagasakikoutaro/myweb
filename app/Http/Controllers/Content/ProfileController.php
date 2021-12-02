@@ -33,7 +33,7 @@ class ProfileController extends Controller
       // データベースに保存する
       $profile->fill($form);
       $profile->save();
-        return redirect('content/profile/create');
+        return redirect('/');
     }
 
     public function edit(Request $request)
@@ -83,7 +83,7 @@ class ProfileController extends Controller
   {
       $profile = Profile::find($request->id);
       $profile->delete();
-      return redirect('content/profile/');
+      return redirect('/');
   }  
 
 

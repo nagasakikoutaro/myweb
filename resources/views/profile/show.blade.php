@@ -1,27 +1,16 @@
-@extends('layouts.show')
+@extends('layouts.front')
 
-@section('title', '札幌転職考え中')
+@section('title', '個人ページ')
 
 @section('content')
-  <div class="container">
+ <div class="container">
     <div class="image col-md-6 text-right mt-4">
         <h1>{{$profile->name}}さんのページ</h1>
         　　@if ($profile->image_path)
             　　<img src="{{ asset('storage/image/' . $profile->image_path) }}">
         　　@endif
             </div>
-            <div class="date">
-            　　{{ $profile->updated_at->format('Y年m月d日') }}
-            </div>
-            <div class="name">
-                名前->   　　{{ str_limit($profile->name, 150) }}
-            </div>
-            <div class="gender">
-                性別-> 　　　{{ str_limit($profile->gender, 150) }}
-            </div>
-            <div class="age">
-                年齢->   　　{{ str_limit($profile->age, 150) }}
-            </div>
+            <p><span>{{ $profile->name }}</span> / <time>{{ $profile->updated_at->format('Y年m月d日') }}</time>/<gender>　{{ ($profile->gender) }}</gender>/<age>　{{ ($profile->age) }}歳</age></p>
             <div class="job">
                 目指す職種->　{{ str_limit($profile->job, 150) }}
             </div>
