@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Coment;
 use App\Profile;
+use Storage; 
 class ComentController extends Controller
 {
 
