@@ -7,7 +7,7 @@
     <div class="image col-md-6 text-right mt-4">
         <h1>{{$profile->name}}さんのページ</h1>
         　　@if ($profile->image_path)
-            　　<img src="{{ asset('storage/image/' . $profile->image_path) }}">
+            　　<img src="{{ ($profile->image_path) }}">
         　　@endif
             </div>
             <p><span>{{ $profile->name }}</span> / <time>{{ $profile->updated_at->format('Y年m月d日') }}</time>/<gender>　{{ ($profile->gender) }}</gender>/<age>　{{ ($profile->age) }}歳</age></p>
