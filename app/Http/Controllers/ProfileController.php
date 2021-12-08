@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Profile;
 use App\Coment;
-use Storage; 
+use Storage;
 
 class ProfileController extends Controller
 {
@@ -33,22 +33,18 @@ class ProfileController extends Controller
 
     public function create(Request $request)
     {
-     $this->validate($request, Profile::$rules);
+        //プロフィールを保存する
+      $this->validate($request, Profile::$rules);
       $profile = new Profile;
       $form = $request->all();
-      
-      // フォームから画像が送信されてきたら、保存して、$profile->image_path に画像のパスを保存する
       if (isset($form['image'])) {
-        $path = Storage::disk('s3')->putFile('/',$profile_form['image'],'public');
-        $profile->image_path = Storage::disk('s3')->url($path);   
+      $path = Storage::disk('s3')->putFile('/',$profile_form['image'],'public');
+      $profile->image_path = Storage::disk('s3')->url($path);
       } else {
           $profile->image_path = null;
       }
-      // フォームから送信されてきた_tokenを削除する
       unset($form['_token']);
-      // フォームから送信されてきたimageを削除する
       unset($form['image']);
-      // データベースに保存する
       $profile->fill($form);
       $profile->save();
         return redirect('/');
@@ -69,7 +65,7 @@ class ProfileController extends Controller
       $profile = Profile::find($request->id);
       $profile_form = $request->all();
       if ($request->remove == 'true') {
-          $news_form['image_path'] = null;
+          $profile_form['image_path'] = null;
       } elseif ($request->file('image')) {
           $path = Storage::disk('s3')->putFile('/',$profile_form['image'],'public');
           $profile->image_path = Storage::disk('s3')->url($path);

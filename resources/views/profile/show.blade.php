@@ -4,12 +4,12 @@
 
 @section('content')
  <div class="container">
-    <div class="image col-md-6 text-right mt-4">
-        <h1>{{$profile->name}}さんのページ</h1>
+    <h1>{{$profile->name}}さんのページ</h1>
+        <div class="image col-md-6 text-right mt-4">
         　　@if ($profile->image_path)
-            　　<img src="{{ ($profile->image_path) }}">
+            　　<img src="{{ $profile->image_path }}">
         　　@endif
-            </div>
+        </div>
             <p><span>{{ $profile->name }}</span> / <time>{{ $profile->updated_at->format('Y年m月d日') }}</time>/<gender>　{{ ($profile->gender) }}</gender>/<age>　{{ ($profile->age) }}歳</age></p>
             <div class="job">
                 目指す職種->　{{ str_limit($profile->job, 150) }}

@@ -11,7 +11,7 @@
         @foreach ($posts as $post)
          <div class="image col-md-6 text-right mt-4">
         　　@if ($post->image_path)
-            　　<img src="{{ ($post->image_path) }}">
+            　　<img src="{{ $post->image_path }}">
         　　@endif
         　　</div>
             <p><span>{{ $post->name }}</span> / <time>{{ $post->updated_at->format('Y年m月d日') }}</time>/<gender>　{{ ($post->gender) }}</gender>/<age>　{{ ($post->age) }}歳</age></p>
