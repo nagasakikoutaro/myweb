@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col-md-8 mx-auto">
                 <h2>Myプロフィール</h2>
-                <form action="{{ action('Content\ProfileController@create') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ action('ProfileController@create') }}" method="post" enctype="multipart/form-data">
 
                     @if (count($errors) > 0)
                         <ul>
@@ -22,6 +22,8 @@
                         <label class="col-md-2">プロフィール画像</label>
                         <div class="col-md-10">
                             <input type="file" class="form-control-file" name="image">
+                        </div>
+                    </div>    
                     <div class="form-group row">
                         <label class="col-md-2">氏名(name)</label>
                         <div class="col-md-10">

@@ -36,16 +36,16 @@ class ProfileController extends Controller
         //プロフィールを保存する
       $this->validate($request, Profile::$rules);
       $profile = new Profile;
-      $form = $request->all();
-      if (isset($form['image'])) {
-      $path = Storage::disk('s3')->putFile('/',$profile_form['image'],'public');
-      $profile->image_path = Storage::disk('s3')->url($path);
+      $profile_form = $request->all();
+      if (isset($profile_form['image'])) {
+    $path = Storage::disk('s3')->putFile('/',$profile_form['image'],'public');
+    $profile->image_path = Storage::disk('s3')->url($path);
       } else {
           $profile->image_path = null;
       }
-      unset($form['_token']);
-      unset($form['image']);
-      $profile->fill($form);
+      unset($profile_form['_token']);
+      unset($profile_form['image']);
+      $profile->fill($profile_form);
       $profile->save();
         return redirect('/');
     }
