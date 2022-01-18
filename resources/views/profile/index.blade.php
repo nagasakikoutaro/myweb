@@ -7,7 +7,7 @@
  <div class="container">
       <div class="row">
         <div class="posts col-md-8 mx-auto mt-3">
-        <h1>プロフィール一覧</h1>
+        <h1>札幌市内の転職活動者~プロフィール一覧</h1>
         @foreach ($posts as $post)
          <div class="image col-md-6 text-right mt-4">
         　　@if ($post->image_path)
@@ -19,7 +19,7 @@
                 目指す職種->　{{ str_limit($post->job) }}
             </div>
             <div class="introduction">
-                自己紹介など->  {{ str_limit($post->introduction) }}
+                自己紹介欄、悩み、知りたいことなど->  {{ str_limit($post->introduction) }}
             </div>
             <div>
                 <a href="{{ action('ProfileController@edit', ['id' => $post->id]) }}">プロフィールを編集</a>

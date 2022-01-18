@@ -15,7 +15,7 @@
                 目指す職種->　{{ str_limit($profile->job, 150) }}
             </div>
             <div class="introduction">
-                自己紹介など->  {{ str_limit($profile->introduction,150) }}
+                自己紹介欄、悩み、知りたいことなど->  {{ str_limit($profile->introduction,150) }}
             </div>
                 
         <form action="{{ action('ComentController@store')}}"  method="post" enctype="multipart/form-data">
@@ -46,7 +46,7 @@
             <h2>コメント一覧</h2>
               @forelse ($profile->coments as $comment)
              <div class="name">
-                名前->   　　{{ str_limit($comment->name, 150) }}
+                名前->   　　{{ str_limit($comment->name, 10) }}
             </div>
             <div class="body">
                 コメント-> 　　　{{ str_limit($comment->body, 150) }}

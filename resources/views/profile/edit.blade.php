@@ -27,31 +27,31 @@
                                 </label>
                             </div>
                     <div class="form-group row">
-                        <label class="col-md-2">氏名(name)</label>
+                        <label class="col-md-2">氏名</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="name" value="{{ $profile_form->name}}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2">性別(gender)</label>
+                        <label class="col-md-2">性別</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="gender" value="{{ $profile_form->gender}}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2">年齢(age)</label>
+                        <label class="col-md-2">年齢</label>
                         <div class="col-md-10">
                         <input type="text" class="form-control" name="age" value="{{ $profile_form->age }}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2">職種(job)</label>
+                        <label class="col-md-2">職種</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="job" value="{{ $profile_form->job }}">
                         </div>
                     </div>
                      <div class="form-group row">
-                        <label class="col-md-2">自己紹介欄(introduction)</label>
+                        <label class="col-md-2">自己紹介欄、悩み、知りたいことなど</label></label>
                         <div class="col-md-10">
                             <textarea class="form-control" name="introduction" rows="5">{{ $profile_form->introduction}}</textarea>
                         </div>
